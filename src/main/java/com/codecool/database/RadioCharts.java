@@ -39,10 +39,10 @@ public class RadioCharts {
 
 	public String getMostActiveArtist(){
 		String mostActiveArtist = "";
-		String SQL = "SELECT artist, count(song) as count " +
+		String SQL = "SELECT artist, count(distinct(song)) as count " +
 			         "FROM music_broadcast " +
 					 "GROUP BY artist " +
-					 "ORDER BY count desc";
+					  "Order by count desc ";
 
 		try {
 			Connection connection = DriverManager.getConnection(url, user, password);
